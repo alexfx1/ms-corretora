@@ -723,7 +723,9 @@
                 <text><![CDATA[_____________________________]]></text>
             </staticText>
             <textField>
-                <reportElement x="328" y="610" width="220" height="20" uuid="1fe75aad-c283-4967-b431-77c368f979a6"/>
+                <reportElement x="328" y="610" width="220" height="20" uuid="1fe75aad-c283-4967-b431-77c368f979a6">
+                    <printWhenExpression><![CDATA[$F{cidadeData} != null]]></printWhenExpression>
+                </reportElement>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
@@ -746,7 +748,9 @@
                 <textFieldExpression><![CDATA[$F{vendedorChavePix}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="95" y="311" width="170" height="18" uuid="3fc3b842-ec90-4151-947e-5219d65b3002"/>
+                <reportElement x="95" y="311" width="170" height="18" uuid="3fc3b842-ec90-4151-947e-5219d65b3002">
+                    <printWhenExpression><![CDATA[$F{corretorComissao} != null]]></printWhenExpression>
+                </reportElement>
                 <textElement textAlignment="Left" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{corretorComissao}]]></textFieldExpression>
             </textField>

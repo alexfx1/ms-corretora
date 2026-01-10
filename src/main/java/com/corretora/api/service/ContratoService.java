@@ -182,13 +182,14 @@ public class ContratoService {
             motorista = motoristaService.saveEntity(contratoDto.getMotorista());
         }
 
-        if(contratoDto.getMercadoria() != null) {
+        if(contratoDto.getMercadoria() != null && !Objects.equals(contrato.getMercadoria().getDsMercadoria(), "")) {
             mercadoria = mercadoriaService.save(new MercadoriaRecord(contratoDto.getMercadoria().getDsMercadoria(), true));
         }
 
         contrato.setDtInicial(contrato.getDtInicial() == null ? LocalDateTime.now(ZoneId.of("America/Sao_Paulo")) : contrato.getDtInicial());
         contrato.setDtUpdate(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
-        contrato.setDtContrato(LocalDate.parse(resolveDtContrato(contratoDto.getDtContrato()), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        contrato.setDtContrato(contratoDto.getDtContrato() != null ?
+                LocalDate.parse(resolveDtContrato(contratoDto.getDtContrato()), DateTimeFormatter.ofPattern("dd/MM/yyyy")) : null);
 
         BeanUtils.copyProperties(contratoDto, contrato);
 
@@ -287,10 +288,8 @@ public class ContratoService {
         dto.setQuantidade(contrato.getVlQuantidade() == null ? "0" : contrato.getVlQuantidade().toString());
         dto.setQuantidadeSaco(contrato.getVlQuantidadeSaco() == null ? "0" : contrato.getVlQuantidadeSaco().toString());
         dto.setKiloSaco(contrato.getVlKilo() == null ? "0" : contrato.getVlKilo().toString());
-        if(contrato.getVlComissao() != null && contrato.getVlComissao().equals(BigDecimal.ZERO)) {
-            dto.setCorretorComissao("");
-        } else {
-            dto.setCorretorComissao(contrato.getVlComissao() == null ? "" : contrato.getVlComissao().toString());
+        if(contrato.getVlComissao() != null) {
+            dto.setCorretorComissao(contrato.getVlComissao().toString());
         }
 
         dto.setPadraoTolerancia(contrato.getDsPadraoTolerancia());
@@ -317,9 +316,11 @@ public class ContratoService {
         dto.setPoliticaValores(politicaValores.getVlParametro());
         dto.setObservacoes(contrato.getDsDescricao());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d 'de' MMMM 'de' yyyy", Locale.forLanguageTag("pt-BR"));
-        String formatted = contrato.getDtContrato().format(formatter);
-        dto.setCidadeData(corretorDto.getDsCidade() + " - " + corretorDto.getDsEstado() + ", " + formatted);
+        if(contrato.getDtContrato() != null) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d 'de' MMMM 'de' yyyy", Locale.forLanguageTag("pt-BR"));
+            String formatted = contrato.getDtContrato().format(formatter);
+            dto.setCidadeData(corretorDto.getDsCidade() + " - " + corretorDto.getDsEstado() + ", " + formatted);
+        }
         return dto;
     }
 

@@ -14,6 +14,7 @@
     <field name="vendedorCidade" class="java.lang.String"/>
     <field name="vendedorInsc" class="java.lang.String"/>
     <field name="vendedorEstado" class="java.lang.String"/>
+    <field name="vendedorChavePix" class="java.lang.String"/>
     <field name="mercadoria" class="java.lang.String"/>
     <field name="quantidade" class="java.lang.String"/>
     <field name="quantidadeSaco" class="java.lang.String"/>
@@ -37,6 +38,8 @@
     <field name="corretorAgencia" class="java.lang.String"/>
     <field name="corretorConta" class="java.lang.String"/>
     <field name="corretorEstado" class="java.lang.String"/>
+    <field name="corretorComissao" class="java.lang.String"/>
+    <field name="corretorPix" class="java.lang.String"/>
     <field name="politicaValores" class="java.lang.String"/>
     <field name="observacoes" class="java.lang.String"/>
     <field name="cidadeData" class="java.lang.String"/>
@@ -611,7 +614,7 @@
                 <textFieldExpression><![CDATA[$F{corretorConta}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="390" y="368" width="140" height="18" uuid="07f1ec49-5598-4237-97ac-b23ef0f08092"/>
+                <reportElement x="390" y="368" width="50" height="18" uuid="07f1ec49-5598-4237-97ac-b23ef0f08092"/>
                 <textElement textAlignment="Left" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{corretorEstado}]]></textFieldExpression>
             </textField>
@@ -644,36 +647,36 @@
                 <text><![CDATA[MOTORISTA AUTORIZADO:]]></text>
             </staticText>
             <textField>
-                <reportElement x="250" y="517" width="120" height="20" uuid="996b8ea3-980d-477d-9f13-94bdb723a8e0"/>
+                <reportElement x="250" y="517" width="136" height="20" uuid="996b8ea3-980d-477d-9f13-94bdb723a8e0"/>
                 <textElement verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{motoristaNome}]]></textFieldExpression>
             </textField>
             <staticText>
-                <reportElement x="370" y="517" width="42" height="20" uuid="2bee9a2a-5535-48df-b4fd-c9622ddb2ac2"/>
+                <reportElement x="387" y="517" width="42" height="20" uuid="2bee9a2a-5535-48df-b4fd-c9622ddb2ac2"/>
                 <textElement verticalAlignment="Middle">
                     <font isBold="false"/>
                 </textElement>
                 <text><![CDATA[PLACA:]]></text>
             </staticText>
             <textField>
-                <reportElement x="410" y="517" width="90" height="20" uuid="af98af69-7845-4e6e-aeaa-fa4f1471a1f9"/>
+                <reportElement x="429" y="517" width="90" height="20" uuid="af98af69-7845-4e6e-aeaa-fa4f1471a1f9"/>
                 <textElement verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{motoristaPlaca}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="250" y="537" width="120" height="20" uuid="e6f92613-fc73-4425-823a-e06429a7484f"/>
+                <reportElement x="250" y="537" width="136" height="20" uuid="e6f92613-fc73-4425-823a-e06429a7484f"/>
                 <textElement verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{motoristaCidade}]]></textFieldExpression>
             </textField>
             <staticText>
-                <reportElement x="370" y="537" width="30" height="20" uuid="c42b0fc9-2b10-449e-8dfe-885934e58490"/>
+                <reportElement x="390" y="537" width="30" height="20" uuid="c42b0fc9-2b10-449e-8dfe-885934e58490"/>
                 <textElement verticalAlignment="Middle">
                     <font isBold="false"/>
                 </textElement>
                 <text><![CDATA[CPF:]]></text>
             </staticText>
             <textField>
-                <reportElement x="400" y="537" width="100" height="20" uuid="9da1858d-343f-4101-9c69-187886275b36"/>
+                <reportElement x="420" y="537" width="100" height="20" uuid="9da1858d-343f-4101-9c69-187886275b36"/>
                 <textElement verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{motoristaCpf}]]></textFieldExpression>
             </textField>
@@ -725,6 +728,43 @@
                     <font isBold="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{cidadeData}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="360" y="240" width="80" height="20" uuid="cf998922-9408-4984-8585-818f50ab665f">
+                    <printWhenExpression><![CDATA[$F{formaPagamento} != null && $F{formaPagamento}.equals("PIX")]]></printWhenExpression>
+                </reportElement>
+                <textElement verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[CHAVE PIX:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="440" y="241" width="114" height="18" uuid="5fd96b55-1a7d-4d0f-a91a-a46d75314e15">
+                    <printWhenExpression><![CDATA[$F{formaPagamento} != null && $F{formaPagamento}.equals("PIX")]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{vendedorChavePix}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="95" y="311" width="170" height="18" uuid="3fc3b842-ec90-4151-947e-5219d65b3002"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{corretorComissao}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="440" y="367" width="30" height="20" uuid="7b8dcb94-764e-491d-b47a-3c00cd5baf50">
+                    <printWhenExpression><![CDATA[$F{corretorPix} != null]]></printWhenExpression>
+                </reportElement>
+                <textElement verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[PIX:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="470" y="368" width="80" height="18" uuid="2e565c49-0470-448f-b54d-0556729d1dd7">
+                    <printWhenExpression><![CDATA[$F{corretorPix} != null]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{corretorPix}]]></textFieldExpression>
             </textField>
         </band>
     </pageHeader>

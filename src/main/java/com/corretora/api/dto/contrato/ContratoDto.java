@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,6 +31,8 @@ public class ContratoDto {
     private BigDecimal precoSaco;
 
     private BigDecimal vlKilo;
+
+    private BigDecimal vlComissao;
 
     private Integer vlQuantidadeSaco;
 

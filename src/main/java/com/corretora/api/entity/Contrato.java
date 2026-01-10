@@ -62,6 +62,9 @@ public class Contrato {
     @Column(name = "VL_KILO")
     private BigDecimal vlKilo;
 
+    @Column(name = "VL_COMISSAO")
+    private BigDecimal vlComissao;
+
     @Column(name = "DS_PADRAO_TOLERANCIA")
     private String dsPadraoTolerancia;
 

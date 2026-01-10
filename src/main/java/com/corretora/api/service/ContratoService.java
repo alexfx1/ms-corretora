@@ -188,7 +188,7 @@ public class ContratoService {
 
         contrato.setDtInicial(contrato.getDtInicial() == null ? LocalDateTime.now(ZoneId.of("America/Sao_Paulo")) : contrato.getDtInicial());
         contrato.setDtUpdate(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
-        contrato.setDtContrato(LocalDate.parse(contratoDto.getDtContrato(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        contrato.setDtContrato(LocalDate.parse(resolveDtContrato(contratoDto.getDtContrato()), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 
         BeanUtils.copyProperties(contratoDto, contrato);
 
@@ -218,8 +218,13 @@ public class ContratoService {
         contrato.setDsArmazenagem(contratoDto.getDsArmazenagem());
         contrato.setDsEnderecoEntrega(contratoDto.getDsEnderecoEntrega());
         contrato.setDsEmbalagem(contratoDto.getDsEmbalagem());
-        contrato.setDsFormaPagamento(contratoDto.getDsFormaPagamento());
         contrato.setDsPagamento(contratoDto.getDsPagamento());
+
+        if(contratoDto.getDsFormaPagamento().equalsIgnoreCase("pix")) {
+            contrato.setDsFormaPagamento(contratoDto.getDsFormaPagamento().toUpperCase());
+        } else {
+            contrato.setDsFormaPagamento(contratoDto.getDsFormaPagamento());
+        }
 
         // Preco mercadoria - quantidade
         contrato.setPrecoSaco(contratoDto.getPrecoSaco());
@@ -263,6 +268,7 @@ public class ContratoService {
             dto.setVendedorAgencia(contrato.getVendedor().getCdAgencia());
             dto.setVendedorConta(contrato.getVendedor().getCdConta());
             dto.setVendedorInsc(contrato.getVendedor().getDsIns());
+            dto.setVendedorChavePix(contrato.getVendedor().getDsChavePix() == null ? "" : contrato.getVendedor().getDsChavePix());
         }
 
         // Motorista
@@ -278,9 +284,14 @@ public class ContratoService {
             dto.setMercadoria(contrato.getMercadoria().getDsMercadoria());
         }
 
-        dto.setQuantidade(contrato.getVlQuantidade().toString());
-        dto.setQuantidadeSaco(contrato.getVlQuantidadeSaco().toString());
-        dto.setKiloSaco(contrato.getVlKilo().toString());
+        dto.setQuantidade(contrato.getVlQuantidade() == null ? "0" : contrato.getVlQuantidade().toString());
+        dto.setQuantidadeSaco(contrato.getVlQuantidadeSaco() == null ? "0" : contrato.getVlQuantidadeSaco().toString());
+        dto.setKiloSaco(contrato.getVlKilo() == null ? "0" : contrato.getVlKilo().toString());
+        if(contrato.getVlComissao() != null && contrato.getVlComissao().equals(BigDecimal.ZERO)) {
+            dto.setCorretorComissao("");
+        } else {
+            dto.setCorretorComissao(contrato.getVlComissao() == null ? "" : contrato.getVlComissao().toString());
+        }
 
         dto.setPadraoTolerancia(contrato.getDsPadraoTolerancia());
         dto.setArmazenagem(contrato.getDsArmazenagem());
@@ -299,6 +310,7 @@ public class ContratoService {
         dto.setCorretorBanco(corretorDto.getDsBanco());
         dto.setCorretorAgencia(corretorDto.getCdAgencia());
         dto.setCorretorConta(corretorDto.getCdConta());
+        dto.setCorretorPix(corretorDto.getDsChavePix());
 
         // Final Obs
         var politicaValores = parametroService.findByKey(POLITICA_VALORES);
@@ -309,6 +321,13 @@ public class ContratoService {
         String formatted = contrato.getDtContrato().format(formatter);
         dto.setCidadeData(corretorDto.getDsCidade() + " - " + corretorDto.getDsEstado() + ", " + formatted);
         return dto;
+    }
+
+    private String resolveDtContrato(String dtContrato) {
+        if(dtContrato == null || dtContrato.equals("")) {
+            return LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        }
+        return dtContrato;
     }
 
 }

@@ -43,6 +43,7 @@ public class ContratoJasperDto {
     private String vendedorAgencia;
     private String vendedorConta;
     private String formaPagamento;
+    private String vendedorChavePix;
 
     // Comissão
     private String corretorNome;
@@ -52,6 +53,8 @@ public class ContratoJasperDto {
     private String corretorAgencia;
     private String corretorConta;
     private String corretorEstado;
+    private String corretorComissao;
+    private String corretorPix;
 
     // Política / Observações
     private String politicaValores;

@@ -659,7 +659,7 @@
                 <text><![CDATA[PLACA:]]></text>
             </staticText>
             <textField>
-                <reportElement x="429" y="517" width="90" height="20" uuid="af98af69-7845-4e6e-aeaa-fa4f1471a1f9"/>
+                <reportElement x="429" y="517" width="110" height="20" uuid="af98af69-7845-4e6e-aeaa-fa4f1471a1f9"/>
                 <textElement verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{motoristaPlaca}]]></textFieldExpression>
             </textField>

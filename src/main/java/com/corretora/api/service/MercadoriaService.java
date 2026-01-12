@@ -20,7 +20,7 @@ public class MercadoriaService {
 
     @Transactional
     public Mercadoria save(MercadoriaRecord mercadoriaRecord) {
-        String nome = mercadoriaRecord.nome().trim().toUpperCase(Locale.ROOT);
+        String nome = mercadoriaRecord.dsMercadoria().trim().toUpperCase(Locale.ROOT);
         var mercadoria = mercadoriaRepository.findByDsMercadoria(nome);
         return mercadoria.orElseGet(() -> mercadoriaRepository.save(new Mercadoria(nome, mercadoriaRecord.flAtivo())));
     }

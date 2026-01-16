@@ -232,9 +232,7 @@ public class ContratoService {
         contrato.setPrecoSaco(contratoDto.getPrecoSaco());
         contrato.setVlQuantidadeSaco(contratoDto.getVlQuantidadeSaco());
         contrato.setVlKilo(contratoDto.getVlKilo());
-        if(contratoDto.getVlQuantidadeSaco() != null && contratoDto.getVlKilo() != null) {
-            contrato.setVlQuantidade(contrato.getVlKilo().multiply(BigDecimal.valueOf(contrato.getVlQuantidadeSaco())));
-        }
+        contrato.setVlQuantidade(contratoDto.getVlQuantidade());
 
         // Save db
         var salvo = contratoRepository.save(contrato);

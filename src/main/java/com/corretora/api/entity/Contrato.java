@@ -54,7 +54,7 @@ public class Contrato {
     private BigDecimal vlQuantidade;
 
     @Column(name = "VL_QUANTIDADE_SACO")
-    private Integer vlQuantidadeSaco;
+    private BigDecimal vlQuantidadeSaco;
 
     @Column(name = "VL_PRECO_SACO")
     private BigDecimal precoSaco;

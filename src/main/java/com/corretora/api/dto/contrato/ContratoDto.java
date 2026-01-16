@@ -34,7 +34,7 @@ public class ContratoDto {
 
     private BigDecimal vlComissao;
 
-    private Integer vlQuantidadeSaco;
+    private BigDecimal vlQuantidadeSaco;
 
     private String dsPadraoTolerancia;
 

@@ -55,4 +55,6 @@ public class ContratoDto {
     private String dsDescricao;
 
     private String dtContrato;
+
+    private String unit;
 }

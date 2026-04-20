@@ -44,6 +44,7 @@ public class ContratoJasperDto {
     private String vendedorConta;
     private String formaPagamento;
     private String vendedorChavePix;
+    private String unidade;
 
     // Comissão
     private String corretorNome;

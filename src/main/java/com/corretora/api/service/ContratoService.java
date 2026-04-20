@@ -178,7 +178,7 @@ public class ContratoService {
             vendedor = clienteService.saveEntity(contratoDto.getVendedor());
         }
 
-        if(contratoDto.getMotorista() != null) {
+        if(contratoDto.getMotorista() != null && !Objects.equals(contratoDto.getMotorista().getDsNome(), "")) {
             motorista = motoristaService.saveEntity(contratoDto.getMotorista());
         }
 
@@ -221,6 +221,7 @@ public class ContratoService {
         contrato.setDsEnderecoEntrega(contratoDto.getDsEnderecoEntrega());
         contrato.setDsEmbalagem(contratoDto.getDsEmbalagem());
         contrato.setDsPagamento(contratoDto.getDsPagamento());
+        contrato.setVlComissao(contratoDto.getVlComissao());
 
         if(contratoDto.getDsFormaPagamento().equalsIgnoreCase("pix")) {
             contrato.setDsFormaPagamento(contratoDto.getDsFormaPagamento().toUpperCase());
@@ -299,6 +300,11 @@ public class ContratoService {
         dto.setFormaPagamento(contrato.getDsFormaPagamento());
         dto.setPagamento(contrato.getDsPagamento());
         dto.setPesoQualidade(contrato.getDsPesoQualidade());
+        dto.setUnidade(contrato.getUnit() == null ? "Scs" : contrato.getUnit());
+
+        if(Objects.equals(contrato.getUnit(), "Ton")) {
+            dto.setQuantidade(dto.getQuantidade().replaceAll("\\..*", ""));
+        }
 
         // Corretor
         dto.setCorretorNome(corretorDto.getDsNome());

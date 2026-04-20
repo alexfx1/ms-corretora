@@ -104,4 +104,7 @@ public class Contrato {
 
     @Column(name = "DT_CONTRATO")
     private LocalDate dtContrato;
+
+    @Column(name = "DS_UNIDADE")
+    private String unit;
 }

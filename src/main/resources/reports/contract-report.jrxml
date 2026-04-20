@@ -43,6 +43,7 @@
     <field name="politicaValores" class="java.lang.String"/>
     <field name="observacoes" class="java.lang.String"/>
     <field name="cidadeData" class="java.lang.String"/>
+    <field name="unidade" class="java.lang.String"/>
     <field name="motoristaNome" class="java.lang.String"/>
     <field name="motoristaPlaca" class="java.lang.String"/>
     <field name="motoristaCidade" class="java.lang.String"/>
@@ -87,7 +88,7 @@
                 <text><![CDATA[COMPRADOR:]]></text>
             </staticText>
             <textField>
-                <reportElement x="90" y="95" width="250" height="20" uuid="eed6a3c9-0d9a-437b-84dd-91a8f7d0c848">
+                <reportElement x="90" y="95" width="300" height="20" uuid="eed6a3c9-0d9a-437b-84dd-91a8f7d0c848">
                     <property name="com.jaspersoft.studio.unit.width" value="px"/>
                 </reportElement>
                 <textElement>
@@ -103,7 +104,7 @@
                 <text><![CDATA[CPF/CNPJ:]]></text>
             </staticText>
             <textField>
-                <reportElement x="150" y="115" width="190" height="18" uuid="f4733b8e-42e4-4ae8-b098-052f55805665"/>
+                <reportElement x="150" y="115" width="240" height="18" uuid="f4733b8e-42e4-4ae8-b098-052f55805665"/>
                 <textElement>
                     <font isBold="true"/>
                 </textElement>
@@ -117,7 +118,7 @@
                 <text><![CDATA[ENDEREÇO:]]></text>
             </staticText>
             <textField>
-                <reportElement x="160" y="129" width="180" height="14" uuid="2c5f196c-1deb-4de3-8327-bc2c7f69c771"/>
+                <reportElement x="160" y="129" width="230" height="14" uuid="2c5f196c-1deb-4de3-8327-bc2c7f69c771"/>
                 <textFieldExpression><![CDATA[$F{compradorEndereco}]]></textFieldExpression>
             </textField>
             <staticText>
@@ -128,7 +129,7 @@
                 <text><![CDATA[CIDADE:]]></text>
             </staticText>
             <textField>
-                <reportElement x="140" y="143" width="200" height="14" uuid="9cd7f5ba-030b-49d6-b152-4340d465d52f"/>
+                <reportElement x="140" y="143" width="250" height="14" uuid="9cd7f5ba-030b-49d6-b152-4340d465d52f"/>
                 <textFieldExpression><![CDATA[$F{compradorCidade}]]></textFieldExpression>
             </textField>
             <staticText>
@@ -174,7 +175,7 @@
                 <text><![CDATA[VENDEDOR:]]></text>
             </staticText>
             <textField>
-                <reportElement x="90" y="3" width="250" height="20" uuid="5e951b6f-1486-4335-9d43-737f87ef2ab1">
+                <reportElement x="90" y="3" width="300" height="20" uuid="5e951b6f-1486-4335-9d43-737f87ef2ab1">
                     <property name="com.jaspersoft.studio.unit.width" value="px"/>
                 </reportElement>
                 <textElement>
@@ -190,7 +191,7 @@
                 <text><![CDATA[CPF/CNPJ:]]></text>
             </staticText>
             <textField>
-                <reportElement x="150" y="24" width="190" height="18" uuid="460380f1-645a-4040-a26e-7126ff24ef79"/>
+                <reportElement x="150" y="24" width="240" height="18" uuid="460380f1-645a-4040-a26e-7126ff24ef79"/>
                 <textElement>
                     <font isBold="true"/>
                 </textElement>
@@ -204,7 +205,7 @@
                 <text><![CDATA[ENDEREÇO:]]></text>
             </staticText>
             <textField>
-                <reportElement x="160" y="37" width="180" height="14" uuid="2d6dd85f-0487-4860-aa49-40629c9fc5d9"/>
+                <reportElement x="160" y="37" width="230" height="14" uuid="2d6dd85f-0487-4860-aa49-40629c9fc5d9"/>
                 <textFieldExpression><![CDATA[$F{vendedorEndereco}]]></textFieldExpression>
             </textField>
             <staticText>
@@ -215,7 +216,7 @@
                 <text><![CDATA[CIDADE:]]></text>
             </staticText>
             <textField>
-                <reportElement x="140" y="51" width="200" height="14" uuid="9c033020-45d6-42aa-ad95-e507f0dc843a"/>
+                <reportElement x="140" y="51" width="250" height="14" uuid="9c033020-45d6-42aa-ad95-e507f0dc843a"/>
                 <textFieldExpression><![CDATA[$F{vendedorCidade}]]></textFieldExpression>
             </textField>
             <staticText>
@@ -257,7 +258,7 @@
                 <text><![CDATA[MERCADORIA:]]></text>
             </staticText>
             <textField>
-                <reportElement x="90" y="80" width="100" height="20" uuid="b1d5cd8d-60cf-463e-9c6e-b8287202e853"/>
+                <reportElement x="90" y="80" width="300" height="20" uuid="b1d5cd8d-60cf-463e-9c6e-b8287202e853"/>
                 <textFieldExpression><![CDATA[$F{mercadoria}]]></textFieldExpression>
             </textField>
             <staticText>
@@ -286,36 +287,37 @@
                 <textElement verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{padraoTolerancia}]]></textFieldExpression>
             </textField>
-            <staticText>
-                <reportElement x="160" y="94" width="30" height="14" uuid="2b555f9b-cfcf-4cd9-ae21-47bb13506e54"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Kgs.]]></text>
-            </staticText>
             <textField>
-                <reportElement x="220" y="94" width="50" height="14" uuid="1cb4c34a-6486-4385-b8dc-72523abf5933"/>
+                <reportElement x="220" y="94" width="50" height="14" uuid="1cb4c34a-6486-4385-b8dc-72523abf5933">
+                    <printWhenExpression><![CDATA[$F{unidade}.equals("Scs")]]></printWhenExpression>
+                </reportElement>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{quantidadeSaco}]]></textFieldExpression>
             </textField>
             <staticText>
-                <reportElement x="270" y="94" width="30" height="14" uuid="4b2bd287-dc31-4d57-a040-631b864d9f82"/>
+                <reportElement x="270" y="94" width="30" height="14" uuid="4b2bd287-dc31-4d57-a040-631b864d9f82">
+                    <printWhenExpression><![CDATA[$F{unidade}.equals("Scs")]]></printWhenExpression>
+                </reportElement>
                 <textElement>
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Scs.]]></text>
             </staticText>
             <staticText>
-                <reportElement x="340" y="94" width="30" height="14" uuid="fd720e53-ef02-4cf3-8229-93440caca6c8"/>
+                <reportElement x="340" y="94" width="30" height="14" uuid="fd720e53-ef02-4cf3-8229-93440caca6c8">
+                    <printWhenExpression><![CDATA[$F{unidade}.equals("Scs")]]></printWhenExpression>
+                </reportElement>
                 <textElement>
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Kgs.]]></text>
             </staticText>
             <textField>
-                <reportElement x="300" y="94" width="40" height="14" uuid="17826e19-bd38-40d2-8f43-e6ac5d6eb64b"/>
+                <reportElement x="300" y="94" width="40" height="14" uuid="17826e19-bd38-40d2-8f43-e6ac5d6eb64b">
+                    <printWhenExpression><![CDATA[$F{unidade}.equals("Scs")]]></printWhenExpression>
+                </reportElement>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font isBold="true"/>
                 </textElement>
@@ -404,13 +406,6 @@
                 </textElement>
                 <textFieldExpression><![CDATA[$F{preco}]]></textFieldExpression>
             </textField>
-            <staticText>
-                <reportElement x="210" y="191" width="100" height="20" uuid="7b30f9a7-a805-4e6a-b4b7-118592dba1a8"/>
-                <textElement verticalAlignment="Middle">
-                    <font isBold="false"/>
-                </textElement>
-                <text><![CDATA[P/ Scs]]></text>
-            </staticText>
             <rectangle>
                 <reportElement x="0" y="213" width="555" height="87" uuid="327e4770-5683-4f53-9b46-3241139d4df9"/>
             </rectangle>
@@ -527,13 +522,6 @@
             <rectangle>
                 <reportElement x="0" y="300" width="555" height="87" uuid="6039f947-6cd8-484a-858e-e940792e268e"/>
             </rectangle>
-            <staticText>
-                <reportElement x="10" y="310" width="90" height="20" uuid="73c696e4-37c5-4817-9291-f86f01d8c1c7"/>
-                <textElement verticalAlignment="Middle">
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[COMISSÃO Scs :]]></text>
-            </staticText>
             <textField>
                 <reportElement x="100" y="330" width="210" height="20" uuid="a924f906-4528-4e18-b907-45e021c2b60d">
                     <property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -633,50 +621,66 @@
                 <textFieldExpression><![CDATA[$F{politicaValores}]]></textFieldExpression>
             </textField>
             <staticText>
-                <reportElement x="5" y="517" width="90" height="20" uuid="77b50d8b-7c6c-4256-ae02-e36385aac500"/>
+                <reportElement x="5" y="517" width="90" height="20" uuid="77b50d8b-7c6c-4256-ae02-e36385aac500">
+                    <printWhenExpression><![CDATA[$F{motoristaNome} != null]]></printWhenExpression>
+                </reportElement>
                 <textElement verticalAlignment="Middle">
                     <font isBold="false"/>
                 </textElement>
                 <text><![CDATA[OBSERVAÇÃO:]]></text>
             </staticText>
             <staticText>
-                <reportElement x="110" y="517" width="140" height="20" uuid="acfef286-586f-4671-af98-755323453288"/>
+                <reportElement x="110" y="517" width="140" height="20" uuid="acfef286-586f-4671-af98-755323453288">
+                    <printWhenExpression><![CDATA[$F{motoristaNome} != null]]></printWhenExpression>
+                </reportElement>
                 <textElement verticalAlignment="Middle">
                     <font isBold="false"/>
                 </textElement>
                 <text><![CDATA[MOTORISTA AUTORIZADO:]]></text>
             </staticText>
             <textField>
-                <reportElement x="250" y="517" width="136" height="20" uuid="996b8ea3-980d-477d-9f13-94bdb723a8e0"/>
+                <reportElement x="250" y="517" width="136" height="20" uuid="996b8ea3-980d-477d-9f13-94bdb723a8e0">
+                    <printWhenExpression><![CDATA[$F{motoristaNome} != null]]></printWhenExpression>
+                </reportElement>
                 <textElement verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{motoristaNome}]]></textFieldExpression>
             </textField>
             <staticText>
-                <reportElement x="387" y="517" width="42" height="20" uuid="2bee9a2a-5535-48df-b4fd-c9622ddb2ac2"/>
+                <reportElement x="387" y="517" width="42" height="20" uuid="2bee9a2a-5535-48df-b4fd-c9622ddb2ac2">
+                    <printWhenExpression><![CDATA[$F{motoristaPlaca} != null]]></printWhenExpression>
+                </reportElement>
                 <textElement verticalAlignment="Middle">
                     <font isBold="false"/>
                 </textElement>
                 <text><![CDATA[PLACA:]]></text>
             </staticText>
             <textField>
-                <reportElement x="429" y="517" width="110" height="20" uuid="af98af69-7845-4e6e-aeaa-fa4f1471a1f9"/>
+                <reportElement x="429" y="517" width="110" height="20" uuid="af98af69-7845-4e6e-aeaa-fa4f1471a1f9">
+                    <printWhenExpression><![CDATA[$F{motoristaPlaca} != null]]></printWhenExpression>
+                </reportElement>
                 <textElement verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{motoristaPlaca}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="250" y="537" width="136" height="20" uuid="e6f92613-fc73-4425-823a-e06429a7484f"/>
+                <reportElement x="250" y="537" width="136" height="20" uuid="e6f92613-fc73-4425-823a-e06429a7484f">
+                    <printWhenExpression><![CDATA[$F{motoristaCidade} != null]]></printWhenExpression>
+                </reportElement>
                 <textElement verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{motoristaCidade}]]></textFieldExpression>
             </textField>
             <staticText>
-                <reportElement x="390" y="537" width="30" height="20" uuid="c42b0fc9-2b10-449e-8dfe-885934e58490"/>
+                <reportElement x="390" y="537" width="30" height="20" uuid="c42b0fc9-2b10-449e-8dfe-885934e58490">
+                    <printWhenExpression><![CDATA[$F{motoristaCpf} != null]]></printWhenExpression>
+                </reportElement>
                 <textElement verticalAlignment="Middle">
                     <font isBold="false"/>
                 </textElement>
                 <text><![CDATA[CPF:]]></text>
             </staticText>
             <textField>
-                <reportElement x="420" y="537" width="100" height="20" uuid="9da1858d-343f-4101-9c69-187886275b36"/>
+                <reportElement x="420" y="537" width="100" height="20" uuid="9da1858d-343f-4101-9c69-187886275b36">
+                    <printWhenExpression><![CDATA[$F{motoristaCpf} != null]]></printWhenExpression>
+                </reportElement>
                 <textElement verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{motoristaCpf}]]></textFieldExpression>
             </textField>
@@ -769,6 +773,39 @@
                 </reportElement>
                 <textElement textAlignment="Left" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{corretorPix}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="160" y="94" width="30" height="14" uuid="b9233513-10ef-4b29-9e76-19034492f377">
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[!"Ton".equals($F{unidade}) ? "Kgs." : "Ton."]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="210" y="191" width="100" height="20" uuid="a8b4e335-4a61-4ea5-99b3-98a4c79107b7">
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textElement textAlignment="Left" verticalAlignment="Middle" markup="html"/>
+                <textFieldExpression><![CDATA[!"Ton".equals($F{unidade}) ? "P/ Scs" : "P/ Ton"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="10" y="310" width="90" height="20" uuid="1db4698f-f79d-4257-ade6-a0d03b9beb82">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement textAlignment="Left" verticalAlignment="Middle" markup="styled">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[!"Ton".equals($F{unidade}) ? "COMISSÃO Scs :" : "COMISSÃO Ton :"]]></textFieldExpression>
             </textField>
         </band>
     </pageHeader>
